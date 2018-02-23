@@ -4,7 +4,7 @@ class beid::install {
     /^(Debian|Ubuntu)/: { $beid::provider = 'dpkg' }
     'RedHat', 'CentOS':  { $beid::provider = 'yum' }
     'Fedora':  { $beid::provider = 'dnf' }
-    default:  { fail("Module ${module_name} is not supported on: $facts['os']['name']") }
+    default:  { fail("Module ${module_name} is not supported on ${::operatingsystem}") }
   }
 
   wget::fetch { $beid::package_archive:
