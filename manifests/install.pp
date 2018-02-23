@@ -48,7 +48,7 @@ class beid::install {
   if $beid::manage_service {
 
     package { $beid::service_package:
-      ensure  => latest,      
+      ensure  => latest,
     }
   }
 

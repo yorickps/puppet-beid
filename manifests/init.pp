@@ -9,10 +9,8 @@ class beid (
 ){
 
   contain beid::install
-  contain beid::config
   contain beid::service
 
   Class['::beid::install']
-  -> Class['::beid::config']
   ~> Class['::beid::service']
 }
