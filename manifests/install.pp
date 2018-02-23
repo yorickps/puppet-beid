@@ -2,24 +2,24 @@
 class beid::install {
 
   case $facts['os']['name'] {
-    /^(Debian|Ubuntu)/: { $beid::provider = 'dpkg' }
-    'RedHat', 'CentOS':  { $beid::provider = 'yum' }
-    'Fedora':  { $beid::provider = 'dnf' }
-    default:  { fail("Module ${module_name} is not supported on ${::operatingsystem}") }
+    /^(Debian|Ubuntu)/: { $provider = 'dpkg' }
+    'RedHat', 'CentOS':  { $provider = 'yum' }
+    'Fedora':  { $provider = 'dnf' }
+    default:  { fail("Module ${::module_name} is not supported on ${::operatingsystem}") }
   }
 
-  wget::fetch { $beid::package_archive:
-    source      => "${beid::download_url}/${beid::package_archive}",
-    destination => "/tmp/${beid::package_archive}",
-    timeout     => 0,
-    verbose     => false,
+  archive { $beid::package_archive:
+    ensure  => present,
+    source  => "${beid::download_url}/${beid::package_archive}",
+    path    => "/tmp/${beid::package_archive}",
+    cleanup => false,
   }
 
   package { $beid::package_archive:
-    ensure   => $beid::version,
-    provider => $beid::provider,
+    ensure   => latest,
+    provider => $provider,
     source   => "/tmp/${beid::package_archive}",
-    require  => Wget::Fetch[$beid::package_archive],
+    require  => Archive[$beid::package_archive],
   }
 
   if $beid::package_manage {
