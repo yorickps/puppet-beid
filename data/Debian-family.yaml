@@ -1,0 +1,14 @@
+---
+beid::version: '2018.1'
+beid::package_archive: "eid-archive_%{lookup('beid::version)}_all.deb"
+beid::service_package: 'pcscd'
+beid::browser_packages_manage: true
+beid::firefox_extension_manage: true
+beid::packages:
+  - eid-archive
+  - eid-viewer
+  - eid-mw
+beid::browser_packages:
+  - icedtea-plugin
+  - default-jre
+beid::firefox_extension: 'beid-mozilla-extension'
