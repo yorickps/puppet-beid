@@ -17,6 +17,7 @@ class beid::install {
 
   package { $beid::package_archive:
     ensure   => latest,
+    name     => $beid::package_archive_name,
     provider => $provider,
     source   => "/tmp/${beid::package_archive}",
     require  => Archive[$beid::package_archive],
