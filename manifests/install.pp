@@ -1,3 +1,4 @@
+# This class handles beid package install
 class beid::install {
 
   case $facts['os']['name'] {

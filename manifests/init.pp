@@ -1,3 +1,6 @@
+# beid
+#
+# Main class, includes all other classes.
 class beid (
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
@@ -12,5 +15,5 @@ class beid (
   contain beid::service
 
   Class['::beid::install']
-  ~> Class['::beid::service']
+  -> Class['::beid::service']
 }

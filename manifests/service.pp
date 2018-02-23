@@ -1,4 +1,4 @@
-# This class handles the beid service. Avoid modifying private classes.
+# This class handles the beid service.
 class beid::service {
 
   if $beid::service_manage == true {
