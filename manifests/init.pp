@@ -1,7 +1,7 @@
 class beid (
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
-  Stdlib::Httpurl $download_url,
+  $download_url,
   String $package_archive,
   String $service_name,
   String $service_package,
