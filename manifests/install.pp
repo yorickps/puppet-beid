@@ -38,11 +38,13 @@ class beid::install {
 
   if $beid::package_manage {
 
-    $beid::packages.each |String $beid::package| {
-      package { $beid::package:
-        ensure  => $beid::package_ensure,
-        require =>  Package[$beid::package_archive_name]
-      }
+    $beid::packages.each |$beid::package| {
+      ensure_packages($beid::packages, { ensure => $beid::package_ensure })
+
+      # package { $beid::package:
+      #   ensure  => $beid::package_ensure,
+      #   require =>  Package[$beid::package_archive_name]
+      # }
     }
   }
 
