@@ -10,6 +10,7 @@ class beid (
   String $package_archive,
   String $package_archive_name,
   String $package_ensure,
+  String $package_manage,
   String $service_name,
   String $service_package,
   String $version,
