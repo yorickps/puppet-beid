@@ -45,20 +45,20 @@ class beid::install {
       #   ensure  => $beid::package_ensure,
       #   require =>  Package[$beid::package_archive_name]
       # }
-    }
+      }
   }
 
   if ($facts['os']['family'] == 'Debian' and $beid::browser_packages_manage){
 
-    $beid::browser_packages.each |$beid::package| {
+    $beid::browser_packages.each |$beid::browser_package| {
       ensure_packages($beid::browser_package, { ensure => latest })
 
-    # package { $beid::browser_packages:
-    #   ensure  => latest,
-    #   require => Package[$beid::package_archive_name]
-    # }
+      # package { $beid::browser_packages:
+      #   ensure  => latest,
+      #   require => Package[$beid::package_archive_name]
+      # }
+      }
   }
-}
 
   if ($facts['os']['family'] == 'Debian' and $beid::firefox_extension_manage){
 
