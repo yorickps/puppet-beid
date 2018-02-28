@@ -15,11 +15,25 @@ class beid::install {
     cleanup => false,
   }
 
-  package { $beid::package_archive_name:
-    ensure   => latest,
-    provider => $provider,
-    source   => "/tmp/${beid::package_archive}",
-    require  => Archive[$beid::package_archive],  
+  if $facts['os']['family'] == 'Debian' {
+
+    package { $beid::package_archive_name:
+      ensure   => latest,
+      provider => $provider,
+      source   => "/tmp/${beid::package_archive}",
+      require  => Archive[$beid::package_archive],
+      notify   =>  Exec['apt_update']
+    }
+  }
+  
+  if $facts['os']['family'] == 'RedHat' {
+
+    package { $beid::package_archive_name:
+      ensure   => latest,
+      provider => $provider,
+      source   => "/tmp/${beid::package_archive}",
+      require  => Archive[$beid::package_archive],
+    }
   }
 
   if $beid::package_manage {
