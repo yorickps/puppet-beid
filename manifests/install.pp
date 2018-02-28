@@ -15,19 +15,18 @@ class beid::install {
     cleanup => false,
   }
 
-  package { $beid::package_archive:
+  package { $beid::package_archive_name:
     ensure   => latest,
-    name     => $beid::package_archive_name,
     provider => $provider,
     source   => "/tmp/${beid::package_archive}",
-    require  => Archive[$beid::package_archive],
+    require  => Archive[$beid::package_archive],  
   }
 
   if $beid::package_manage {
 
     package { $beid::packages:
       ensure  => $beid::package_ensure,
-      require =>  Package[$beid::package_archive]
+      require =>  Package[$beid::package_archive_name]
     }
   }
 
@@ -35,7 +34,7 @@ class beid::install {
 
     package { $beid::browser_packages:
       ensure  => latest,
-      require => Package[$beid::package_archive]
+      require => Package[$beid::package_archive_name]
     }
   }
 
@@ -43,7 +42,7 @@ class beid::install {
 
     package { $beid::firefox_extension:
       ensure  => latest,
-      require => Package[$beid::package_archive]
+      require => Package[$beid::package_archive_name]
     }
   }
 
