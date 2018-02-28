@@ -2,9 +2,11 @@
 #
 # Main class, includes all other classes.
 class beid (
+  $download_url,
+  Array[String]$packages,
+  Array[String]$browser_packages,
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
-  $download_url,
   String $package_archive,
   String $package_archive_name,
   String $service_name,
