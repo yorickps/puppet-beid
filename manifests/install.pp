@@ -38,26 +38,14 @@ class beid::install {
 
   if $beid::package_manage {
 
-    $beid::packages.each |$beid::package| {
-      ensure_packages($beid::packages, { ensure => $beid::package_ensure })
+    ensure_packages($beid::packages, { ensure => $beid::package_ensure })
 
-      # package { $beid::package:
-      #   ensure  => $beid::package_ensure,
-      #   require =>  Package[$beid::package_archive_name]
-      # }
-      }
   }
 
   if ($facts['os']['family'] == 'Debian' and $beid::browser_packages_manage){
 
-    $beid::browser_packages.each |$beid::browser_package| {
-      ensure_packages($beid::browser_package, { ensure => latest })
+    ensure_packages($beid::browser_packages, { ensure => latest })
 
-      # package { $beid::browser_packages:
-      #   ensure  => latest,
-      #   require => Package[$beid::package_archive_name]
-      # }
-      }
   }
 
   if ($facts['os']['family'] == 'Debian' and $beid::firefox_extension_manage){
