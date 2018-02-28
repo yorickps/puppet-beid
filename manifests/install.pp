@@ -50,11 +50,15 @@ class beid::install {
 
   if ($facts['os']['family'] == 'Debian' and $beid::browser_packages_manage){
 
-    package { $beid::browser_packages:
-      ensure  => latest,
-      require => Package[$beid::package_archive_name]
-    }
+    $beid::browser_packages.each |$beid::package| {
+      ensure_packages($beid::browser_package, { ensure => latest })
+
+    # package { $beid::browser_packages:
+    #   ensure  => latest,
+    #   require => Package[$beid::package_archive_name]
+    # }
   }
+}
 
   if ($facts['os']['family'] == 'Debian' and $beid::firefox_extension_manage){
 
