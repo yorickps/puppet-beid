@@ -1,9 +1,5 @@
 # beid
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -22,19 +18,9 @@ This module installs [Belgian eID software](https://eid.belgium.be/en/linux-eid-
 
 It installs the "eid-archive" package, enabling the eID package repositories. Then it installs the "eid-viewer" and "eid-mw" packages. On Debian based distros it can install the Firefox exention as well.
 
+This module uses the PDK, more info can be found on the [PDK readme](https://github.com/puppetlabs/pdk).
+
 ## Setup
-
-### What beid affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
-### Setup Requirements **OPTIONAL**
 
 ### Beginning with beid
 

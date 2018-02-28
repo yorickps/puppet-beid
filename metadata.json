@@ -1,6 +1,6 @@
 {
   "name": "yorickps-beid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "yorickps",
   "summary": "Puppet module to install Belgian eID",
   "license": "Apache-2.0",
