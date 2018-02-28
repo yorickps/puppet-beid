@@ -6,6 +6,7 @@ class beid (
   Enum['running', 'stopped'] $service_ensure,
   $download_url,
   String $package_archive,
+  String $package_archive_name,
   String $service_name,
   String $service_package,
   String $version,
