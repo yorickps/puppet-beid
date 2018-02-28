@@ -25,7 +25,7 @@ class beid::install {
       notify   =>  Exec['apt_update']
     }
   }
-  
+
   if $facts['os']['family'] == 'RedHat' {
 
     package { $beid::package_archive_name:
@@ -38,9 +38,11 @@ class beid::install {
 
   if $beid::package_manage {
 
-    package { $beid::packages:
-      ensure  => $beid::package_ensure,
-      require =>  Package[$beid::package_archive_name]
+    $beid::packages.each |String $beid::package| {
+      package { $beid::package:
+        ensure  => $beid::package_ensure,
+        require =>  Package[$beid::package_archive_name]
+      }
     }
   }
 
