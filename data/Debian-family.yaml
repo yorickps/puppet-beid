@@ -5,7 +5,6 @@ beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
 beid::firefox_extension_manage: true
 beid::packages:
-  - eid-archive
   - eid-viewer
   - eid-mw
 beid::browser_packages:
