@@ -1,15 +1,8 @@
-
 # beid
 
 Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
 
 The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
 
 #### Table of Contents
 
@@ -25,9 +18,9 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what problem it solves. This is your 30-second elevator pitch for your module. Consider including OS/Puppet version it works with.
+This module installs [Belgian eID software](https://eid.belgium.be/en/linux-eid-software-installation).
 
-You can give more descriptive information in a second paragraph. This paragraph should answer the questions: "What does this module *do*?" and "Why would I use it?" If your module has a range of functionality (installation, configuration, management, etc.), this is the time to mention it.
+It installs the "eid-archive" package, enabling the eID package repositories. Then it installs the "eid-viewer" and "eid-mw" packages. On Debian based distros it can install the Firefox exention as well.
 
 ## Setup
 
@@ -43,34 +36,91 @@ If there's more that they should know about, though, this is the place to mentio
 
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
 ### Beginning with beid
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+`include ::beid` should be enough to get it up and running.
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+All parameters for the beid module are contained within the main ::beid class, so for any function of the module, set the options you want.
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in the README Reference section.
+### Classes
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+#### Public classes
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+beid: Main class, includes all other.
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+#### Private classes
+
+- beid::install: Installs all packages and dependencies
+- beid::service: Handles the systemd service
+
+### Parameters
+
+Following parameters are available, and are the defaults:
+
+#### Common
+
+```yaml
+beid::download_url: https://eid.belgium.be/sites/default/files/software
+beid::manage_service: true
+beid::package_ensure: 'present'
+beid::package_manage: true
+beid::service_enable: true
+beid::service_ensure: 'running'
+beid::service_name: 'pcscd'
+```
+
+#### Debian family
+
+```yaml
+beid::version: '2018.1'
+beid::package_archive: "eid-archive_%{lookup('beid::version')}_all.deb"
+beid::service_package: 'pcscd'
+beid::browser_packages_manage: true
+beid::firefox_extension_manage: true
+beid::packages:
+  - 'eid-viewer'
+  - 'eid-mw'
+beid::browser_packages:
+  - 'icedtea-plugin'
+  - 'default-jre'
+beid::firefox_extension: 'beid-mozilla-extension'
+beid::package_archive_name: 'eid-archive'
+```
+
+#### RedHat family
+
+```yaml
+beid::package_archive: "eid-archive-el-%{lookup('beid::version')}.noarch.rpm"
+beid::version: '2016-2'
+beid::service_package: 'pcscd-tools'
+beid::packages:
+  - eid-archive-el
+  - eid-viewer
+  - eid-mw
+```
+
+#### Fedora
+
+```yaml
+beid::package_archive: eid-archive-fedora-%{lookup('beid::version')}.noarch.rpm
+beid::version: '2016-2'
+beid::packages:
+  - eid-archive-fedora
+  - eid-viewer
+  - eid-mw
+```
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there are Known Issues, you might want to include them under their own heading here.
+This module has been tested on Debian 'stretch' and Fedora 27. CentOS 7 and distros based on Debian (e.g. Ubuntu 16.04) should work as well.
+
+This module does ***not*** cover the installation of the smart card reader. More info can be found on the
+[eiD FAQ](http://test.eid.belgium.be/faq/faq_nl.htm) from the Belgian governement and the [Debian Smartcards wiki](https://wiki.debian.org/Smartcards).
+
 
 ## Development
 
