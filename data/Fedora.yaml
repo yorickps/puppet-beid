@@ -5,3 +5,4 @@ beid::packages:
   - eid-archive-fedora
   - eid-viewer
   - eid-mw
+beid::package_archive_name: 'eid-archive-fedora'
