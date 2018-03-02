@@ -3,7 +3,7 @@
 # Main class, includes all other classes.
 class beid (
   $download_url,
-  Optional[Array[String]]$browser_packages,
+  Optional[Array[String]] $browser_packages,
   Array[String]$packages,
   Boolean $service_enable,
   Enum['running', 'stopped'] $service_ensure,
