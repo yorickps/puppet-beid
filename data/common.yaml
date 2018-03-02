@@ -6,3 +6,4 @@ beid::package_manage: true
 beid::service_enable: true
 beid::service_ensure: 'running'
 beid::service_name: 'pcscd'
+beid::browser_packages: []
