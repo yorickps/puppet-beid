@@ -1,5 +1,7 @@
 # beid
 
+[![Build Status](https://travis-ci.org/yorickps/puppet-beid.svg?branch=master)](https://travis-ci.org/yorickps/puppet-beid)
+
 #### Table of Contents
 
 1. [Description](#description)
