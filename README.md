@@ -59,6 +59,7 @@ beid::package_manage: true
 beid::service_enable: true
 beid::service_ensure: 'running'
 beid::service_name: 'pcscd'
+beid::browser_packages: []
 ```
 
 #### Debian family
@@ -70,11 +71,11 @@ beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
 beid::firefox_extension_manage: true
 beid::packages:
-  - 'eid-viewer'
-  - 'eid-mw'
+  - eid-viewer
+  - eid-mw
 beid::browser_packages:
-  - 'icedtea-plugin'
-  - 'default-jre'
+  - icedtea-plugin
+  - default-jre
 beid::firefox_extension: 'beid-mozilla-extension'
 beid::package_archive_name: 'eid-archive'
 ```
@@ -100,6 +101,7 @@ beid::packages:
   - eid-archive-fedora
   - eid-viewer
   - eid-mw
+beid::package_archive_name: 'eid-archive-fedora'
 ```
 
 ## Limitations
