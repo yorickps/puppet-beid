@@ -112,8 +112,21 @@ This module does ***not*** cover the installation of the smart card reader. More
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+## Contributing
 
-## Release Notes/Contributors/Etc. **Optional**
+This module makes use of the [Puppet Development Kit](https://github.com/puppetlabs/pdk). Take advantage of it's tests and tools if you want to contribute.
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+1. Fork the repo.
+
+1. Create a separate branch for your change.
+
+1. Run the tests. Pull requests with passing tests are more likely to get accepted.
+
+1. If you are adding functionality or fixing a bug, please add a test.
+
+1. Squash your commits down into logical components. Make sure to rebase
+   against the current master.
+
+1. Push the branch to your fork and submit a pull request.
+
+## Release Notes/Contributors/Etc.
