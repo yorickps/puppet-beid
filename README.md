@@ -30,7 +30,7 @@ This module uses the PDK, more info can be found on the [PDK readme](https://git
 
 ## Usage
 
-All parameters for the beid module are contained within the main ::beid class, so for any function of the module, set the options you want.
+All parameters for the beid module are contained within the main `::beid` class, so for any function of the module, set the options you want.
 
 ## Reference
 
@@ -38,12 +38,12 @@ All parameters for the beid module are contained within the main ::beid class, s
 
 #### Public classes
 
-beid: Main class, includes all other.
+`beid`: Main class, includes all other.
 
 #### Private classes
 
-- beid::install: Installs all packages and dependencies
-- beid::service: Handles the systemd service
+- `beid::install`: Installs all packages and dependencies
+- `beid::service`: Handles the systemd service
 
 ### Parameters
 
