@@ -23,12 +23,6 @@
       ]
     },
     {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "7"
@@ -40,6 +34,12 @@
         "7"
       ]
     },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "27"
+      ]
+    },,
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
