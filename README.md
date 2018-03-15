@@ -1,6 +1,7 @@
 # beid
 
 [![Build Status](https://travis-ci.org/yorickps/puppet-beid.svg?branch=master)](https://travis-ci.org/yorickps/puppet-beid)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/yorick/beid.svg)](https://forge.puppetlabs.com/yorick/beid)
 
 #### Table of Contents
 
