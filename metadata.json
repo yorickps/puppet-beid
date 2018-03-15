@@ -1,6 +1,6 @@
 {
   "name": "yorick-beid",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "yorick",
   "summary": "Puppet module to install Belgian eID",
   "license": "MIT",
