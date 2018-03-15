@@ -3,6 +3,5 @@ beid::package_archive: "eid-archive-el-%{lookup('beid::version')}.noarch.rpm"
 beid::version: '2016-2'
 beid::service_package: 'pcscd-tools'
 beid::packages:
-  - eid-archive-el
   - eid-viewer
   - eid-mw
