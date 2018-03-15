@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.5.0
+
+Add contributing section and changelog
+
 ## Release 0.4.0
 
 Added git source url in metadata.json
