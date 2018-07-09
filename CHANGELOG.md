@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.8.0
+
+Bump eid to v2018.2 on Debian
+
 ## Release 0.7.0
 
 Fixed RHEL / Fedora package install
