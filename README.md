@@ -66,7 +66,7 @@ beid::browser_packages: []
 #### Debian family
 
 ```yaml
-beid::version: '2018.1'
+beid::version: '2018.3'
 beid::package_archive: "eid-archive_%{lookup('beid::version')}_all.deb"
 beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
