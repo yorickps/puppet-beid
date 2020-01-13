@@ -1,5 +1,5 @@
 ---
-beid::version: '2018.4'
+beid::version: '2019.6'
 beid::package_archive: "eid-archive_%{lookup('beid::version')}_all.deb"
 beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
