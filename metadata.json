@@ -5,6 +5,8 @@
   "summary": "Puppet module to install Belgian eID",
   "license": "MIT",
   "source": "https://github.com/yorickps/puppet-beid",
+  "project_page": "https://github.com/yorickps/puppet-beid",
+  "issues_url": "https://github.com/yorickps/puppet-beid/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",

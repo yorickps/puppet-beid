@@ -1,6 +1,6 @@
 ---
-beid::version: '2019.6'
-beid::package_archive: "eid-archive_%{lookup('beid::version')}_all.deb"
+beid::version: '2021.1'
+beid::package_archive: "eid-archive_%{lookup('beid::version')}_all_2.deb"
 beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
 beid::firefox_extension_manage: true
