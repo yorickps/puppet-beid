@@ -8,8 +8,7 @@ class beid::install {
   }
 
   if $facts['os']['family'] == 'Debian' {
-
-    include ::apt
+    include apt
 
     package { $beid::package_archive_name:
       ensure  => latest,
