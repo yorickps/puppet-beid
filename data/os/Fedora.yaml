@@ -1,7 +1,8 @@
 ---
 beid::package_archive: "eid-archive-fedora-%{lookup('beid::version')}.noarch.rpm"
-beid::version: '2016-2'
+beid::package_archive_name: eid-archive-fedora
+beid::version: '2021-1'
 beid::packages:
   - eid-viewer
   - eid-mw
-beid::package_archive_name: eid-archive-fedora
+

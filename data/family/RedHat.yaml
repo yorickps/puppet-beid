@@ -1,5 +1,6 @@
 ---
 beid::package_archive: "eid-archive-el-%{lookup('beid::version')}.noarch.rpm"
+beid::package_archive_name: eid-archive-epel
 beid::version: '2016-2'
 beid::service_package: 'pcscd-tools'
 beid::packages:

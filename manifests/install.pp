@@ -1,12 +1,5 @@
 # This class handles beid package install
 class beid::install {
-  case $facts['os']['name'] {
-    /^(Debian|Ubuntu)/: { $provider = 'dpkg' }
-    'RedHat', 'CentOS':  { $provider = 'yum' }
-    'Fedora':  { $provider = 'dnf' }
-    default:  { fail("Module ${facts['module_name']} is not supported on ${facts['facts['os']['name']']}") }
-  }
-
   archive { $beid::package_archive:
     ensure  => present,
     source  => "${beid::download_url}/${beid::package_archive}",
@@ -15,22 +8,22 @@ class beid::install {
   }
 
   if $facts['os']['family'] == 'Debian' {
+    include apt
+
     package { $beid::package_archive_name:
-      ensure   => latest,
-      provider => $provider,
-      source   => "/tmp/${beid::package_archive}",
-      require  => Archive[$beid::package_archive],
-      notify   => Exec['apt_update'],
+      ensure  => latest,
+      source  => "/tmp/${beid::package_archive}",
+      require => Archive[$beid::package_archive],
+      notify  => Exec['apt_update'],
     }
   }
 
   if $facts['os']['family'] == 'RedHat' {
     package { $beid::package_archive_name:
-      ensure   => latest,
-      name     => $beid::package_archive,
-      provider => $provider,
-      source   => "/tmp/${beid::package_archive}",
-      require  => Archive[$beid::package_archive],
+      ensure  => latest,
+      name    => $beid::package_archive,
+      source  => "/tmp/${beid::package_archive}",
+      require => Archive[$beid::package_archive],
     }
   }
 
@@ -49,7 +42,7 @@ class beid::install {
     }
   }
 
-  if $beid::manage_service {
+  if $beid::service_manage {
     package { $beid::service_package:
       ensure  => latest,
     }
