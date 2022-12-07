@@ -1,6 +1,5 @@
 # This class handles the beid service.
 class beid::service {
-
   if $beid::service_manage == true {
     service { 'beid':
       ensure     => $beid::service_ensure,
@@ -10,5 +9,4 @@ class beid::service {
       hasrestart => true,
     }
   }
-
 }
