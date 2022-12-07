@@ -18,11 +18,9 @@ describe 'beid class' do
     describe package('beid::package_archive_name') do
       it { is_expected.to be_installed }
     end
-    
+
     describe service('beid::service_name') do
       it { is_expected.to be_running }
     end
-
   end
-
 end
