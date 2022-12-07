@@ -1,11 +1,10 @@
 # This class handles beid package install
 class beid::install {
-
   case $facts['os']['name'] {
     /^(Debian|Ubuntu)/: { $provider = 'dpkg' }
     'RedHat', 'CentOS':  { $provider = 'yum' }
     'Fedora':  { $provider = 'dnf' }
-    default:  { fail("Module ${::module_name} is not supported on ${::operatingsystem}") }
+    default:  { fail("Module ${facts['module_name']} is not supported on ${facts['facts['os']['name']']}") }
   }
 
   archive { $beid::package_archive:
@@ -16,18 +15,16 @@ class beid::install {
   }
 
   if $facts['os']['family'] == 'Debian' {
-
     package { $beid::package_archive_name:
       ensure   => latest,
       provider => $provider,
       source   => "/tmp/${beid::package_archive}",
       require  => Archive[$beid::package_archive],
-      notify   =>  Exec['apt_update']
+      notify   => Exec['apt_update'],
     }
   }
 
   if $facts['os']['family'] == 'RedHat' {
-
     package { $beid::package_archive_name:
       ensure   => latest,
       name     => $beid::package_archive,
@@ -38,30 +35,23 @@ class beid::install {
   }
 
   if $beid::package_manage {
-
     ensure_packages($beid::packages, { ensure => $beid::package_ensure })
-
   }
 
-  if ($facts['os']['family'] == 'Debian' and $beid::browser_packages_manage){
-
+  if ($facts['os']['family'] == 'Debian' and $beid::browser_packages_manage) {
     ensure_packages($beid::browser_packages, { ensure => latest })
-
   }
 
-  if ($facts['os']['family'] == 'Debian' and $beid::firefox_extension_manage){
-
+  if ($facts['os']['family'] == 'Debian' and $beid::firefox_extension_manage) {
     package { $beid::firefox_extension:
       ensure  => latest,
-      require => Package[$beid::package_archive_name]
+      require => Package[$beid::package_archive_name],
     }
   }
 
   if $beid::manage_service {
-
     package { $beid::service_package:
       ensure  => latest,
     }
   }
-
 }

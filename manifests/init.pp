@@ -14,11 +14,10 @@ class beid (
   String $service_name,
   String $service_package,
   String $version,
-){
-
+) {
   contain beid::install
   contain beid::service
 
-  Class['::beid::install']
-  -> Class['::beid::service']
+  Class['beid::install']
+  -> Class['beid::service']
 }
