@@ -1,6 +1,7 @@
 ---
-beid::version: '2021.1'
+beid::version: '2022.5'
 beid::package_archive: "eid-archive_%{lookup('beid::version')}_all_2.deb"
+beid::package_archive_name: 'eid-archive'
 beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
 beid::firefox_extension_manage: true
@@ -11,4 +12,3 @@ beid::browser_packages:
   - icedtea-plugin
   - default-jre
 beid::firefox_extension: 'beid-mozilla-extension'
-beid::package_archive_name: 'eid-archive'

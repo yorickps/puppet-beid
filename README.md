@@ -54,11 +54,11 @@ Following parameters are available, and are the defaults:
 
 ```yaml
 beid::download_url: https://eid.belgium.be/sites/default/files/software
-beid::manage_service: true
 beid::package_ensure: 'present'
 beid::package_manage: true
 beid::service_enable: true
 beid::service_ensure: 'running'
+beid::service_manage: true
 beid::service_name: 'pcscd'
 beid::browser_packages: []
 ```
