@@ -47,8 +47,8 @@ jobs:
       fail-fast: false
       matrix:
         set:
-          #- "alma-8"
-          #- "rocky-8"
+          - "alma-8"
+          - "rocky-8"
           - "fedora-36"
           - "fedora-37"
           - "debian-11"
