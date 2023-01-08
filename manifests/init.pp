@@ -13,12 +13,12 @@
 # @param package_manage Manage the eid package. Default true
 # @param service_enable Enable the card reader service (pcscd). Default true
 # @param service_ensure Run the card reader service (pcscd). Default running
-# @param service_name
-# @param service_manage
-# @param service_package
-# @param version
-# @param firefox_extension
-# @param firefox_extension_manage
+# @param service_name Name of the card reader service
+# @param service_manage Whether or not to manage the card reader service. Default true
+# @param service_package Name of the service package
+# @param version Version to install of the eid package from the Belgian governement
+# @param firefox_extension Firefox extension name
+# @param firefox_extension_manage Whether or not to manage the Firefox extension. Default true
 class beid (
   Stdlib::HTTPSUrl $download_url,
   Optional[Array[String]] $browser_packages,
