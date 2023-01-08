@@ -75,7 +75,6 @@ beid::packages:
   - eid-viewer
   - eid-mw
 beid::browser_packages:
-  - icedtea-plugin
   - default-jre
 beid::firefox_extension: 'beid-mozilla-extension'
 beid::package_archive_name: 'eid-archive'
