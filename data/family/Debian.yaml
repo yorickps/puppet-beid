@@ -1,6 +1,6 @@
 ---
-beid::version: '2022.5'
-beid::package_archive: "eid-archive_%{lookup('beid::version')}_all_2.deb"
+beid::version: '2022.6'
+beid::package_archive: "eid-archive_%{lookup('beid::version')}_all.deb"
 beid::package_archive_name: 'eid-archive'
 beid::service_package: 'pcscd'
 beid::browser_packages_manage: true
