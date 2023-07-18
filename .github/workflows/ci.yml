@@ -49,14 +49,14 @@ jobs:
         set:
           - "alma-8"
           - "rocky-8"
-          - "fedora-36"
           - "fedora-37"
+          - "fedora-38"
           - "debian-11"
           - "ubuntu-2204"
           - "ubuntu-2210"
         puppet:
-          - "puppet6"
           - "puppet7"
+          - "puppet8"
     env:
       BUNDLE_WITHOUT: development:release
       BEAKER_debug: true
